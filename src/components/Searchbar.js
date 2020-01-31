@@ -5,10 +5,10 @@ export default class Searchbar extends Component {
         input: ''
     }
 
-    handleInput = (e) => {
-        this.setState({input: e.target.value})
-        console.log(this.state.input)
-    }
+    // handleInput = (e) => {
+    //     this.setState({input: e.target.value})
+    //     console.log(this.state.input)
+    // }
 
     render() {
         return (
@@ -16,7 +16,8 @@ export default class Searchbar extends Component {
                 <form className= 'ui form'>
                     <div className ='field'>
                         <label>Image Search</label>
-                        <input type='text' value = {this.state.input} onChange ={this.handleInput}/>
+                        <input type='text' value = {this.state.input} onChange ={(e) => this.setState({input: e.target.value})}/>
+                        {/* <input type='text' onChange={(event) => console.log(event.target.value)}/> */}
                     </div>
                 </form>
             </div>
