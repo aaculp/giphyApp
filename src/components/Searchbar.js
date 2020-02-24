@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Searchbar extends Component {
     state = {
-        input: ''
+        term: ''
     }
 
     // handleInput = (e) => {
@@ -12,7 +12,7 @@ export default class Searchbar extends Component {
     
     onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.input)
+        this.props.onSubmit(this.state.term)
     }
 
     render() {
@@ -21,8 +21,8 @@ export default class Searchbar extends Component {
                 <form className='ui form' onSubmit={this.onFormSubmit}>
                     <div className='field'>
                         <label>Image Search</label>
-                        <input type='text' value={this.state.input} onChange={(e) => this.setState({input: e.target.value})}/>
-                        {/* <input type='text' value={this.state.input} onChange={(e) => this.setState({input: e.target.value.toUpperCase()})}/> */}
+                        <input type='text' value={this.state.term} onChange={(e) => this.setState({term: e.target.value})}/>
+                        {/* <input type='text' value={this.state.term} onChange={(e) => this.setState({term: e.target.value.toUpperCase()})}/> */}
                         {/* <input type='text' onChange={(event) => console.log(event.target.value)}/> */}
                     </div>
                 </form>
