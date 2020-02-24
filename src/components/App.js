@@ -23,8 +23,7 @@ export default class App extends Component {
 
     // this is async and await
      onSearchSubmit = async (term) => {
-        const response = await axios
-        .get('search/photos?', {
+        const response = await Unsplashed.get('search/photos', {
             params: { query: term }
         })
         this.setState({ images: response.data.results})
@@ -35,7 +34,7 @@ export default class App extends Component {
         return (
             <div className='ui container' style={{marginTop: '10px'}}>
                 <Searchbar onSubmit={this.onSearchSubmit} />
-                Found: {this.state.images.length} images
+                Found: {this.state.images.length} images.
             </div>
         )
     }
