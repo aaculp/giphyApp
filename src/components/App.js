@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Searchbar from './Searchbar';
 import Unsplashed from '../api/Unsplashed';
+import ImageList from './ImageList';
 
 export default class App extends Component {
     state = {
@@ -22,19 +23,19 @@ export default class App extends Component {
     // }
 
     // this is async and await
-     onSearchSubmit = async (term) => {
+    onSearchSubmit = async (term) => {
         const response = await Unsplashed.get('search/photos', {
             params: { query: term }
         })
-        this.setState({ images: response.data.results})
+        this.setState({ images: response.data.results })
         console.log(response.data.results)
     }
 
     render() {
         return (
-            <div className='ui container' style={{marginTop: '10px'}}>
+            <div className='ui container' style={{ marginTop: '10px' }}>
                 <Searchbar onSubmit={this.onSearchSubmit} />
-                Found: {this.state.images.length} images.
+                <ImageList images={this.state.images} />
             </div>
         )
     }
