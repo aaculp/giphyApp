@@ -6,6 +6,7 @@ const ImageList = (props) => {
     let images = props.images.map((image) => {
         return <ImageCard key={image.id} image={image} />
     })
+
     return (
         <div className='image-list'>
             {images}
